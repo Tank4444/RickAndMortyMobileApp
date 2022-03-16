@@ -1,5 +1,8 @@
 package ru.itcube.kalc.listener;
 
+import ru.itcube.kalc.model.RMAllResponse;
+
 public interface RickAndMortyListener {
-    void getResult(String s);
+    void onSuccess(RMAllResponse response);
+    void onError(String message);
 }

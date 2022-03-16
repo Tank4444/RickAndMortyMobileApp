@@ -1,11 +1,14 @@
 package ru.itcube.kalc.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Result {
+public class Character {
 
     @SerializedName("id")
     @Expose
@@ -27,7 +30,7 @@ public class Result {
     private String gender;
     @SerializedName("origin")
     @Expose
-    private Origin origin;
+    private Location origin;
     @SerializedName("location")
     @Expose
     private Location location;
@@ -92,11 +95,11 @@ public class Result {
         this.gender = gender;
     }
 
-    public Origin getOrigin() {
+    public Location getOrigin() {
         return origin;
     }
 
-    public void setOrigin(Origin origin) {
+    public void setOrigin(Location origin) {
         this.origin = origin;
     }
 
@@ -139,4 +142,24 @@ public class Result {
     public void setCreated(String created) {
         this.created = created;
     }
+
+    @Override
+    public String toString() {
+        return "Character{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", status='" + status + '\'' +
+                ", species='" + species + '\'' +
+                ", type='" + type + '\'' +
+                ", gender='" + gender + '\'' +
+                ", origin=" + origin +
+                ", location=" + location +
+                ", image='" + image + '\'' +
+                ", episode=" + episode +
+                ", url='" + url + '\'' +
+                ", created='" + created + '\'' +
+                '}';
+    }
+
+
 }
