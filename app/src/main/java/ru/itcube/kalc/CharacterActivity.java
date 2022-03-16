@@ -13,6 +13,7 @@ import ru.itcube.kalc.databinding.ActivityCharacterBinding;
 import ru.itcube.kalc.model.Character;
 import ru.itcube.kalc.service.RickAndMortyService;
 
+//Окно программы которое выводит информацию о текущем персонаже
 public class CharacterActivity extends AppCompatActivity {
     private Character character;
     private RickAndMortyService service;
@@ -27,11 +28,11 @@ public class CharacterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character);
-
+        //Получаем сервис запросов
         service = RickAndMortyService.getInstance(this);
-        
+        //Получаем информацию о нашем персонаже из "Intent"
         character = service.getGson().fromJson( getIntent().getExtras().getString("char"),Character.class);
-
+        //Привязываем объекты к элементам на экране
         charActName = findViewById(R.id.char_act_name);
         charActStatus = findViewById(R.id.char_act_status);
         charActType = findViewById(R.id.char_act_type);
@@ -40,6 +41,7 @@ public class CharacterActivity extends AppCompatActivity {
         charActLocation = findViewById(R.id.char_act_location);
         charActImg = findViewById(R.id.char_act_img);
 
+        //Выводим информацию о персонаже
         Picasso.get().load(character.getImage()).into(charActImg);
 
         charActName.setText(character.getName());
